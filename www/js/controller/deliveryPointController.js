@@ -1,4 +1,4 @@
-﻿myApp.controller('deliveryPointController', function ($scope, $location, $stateParams, $rootScope, $ionicViewService, $state, $timeout, localize, subscriberService, loaderService) {
+﻿myApp.controller('deliveryPointController', function ($scope, $location, $stateParams, $rootScope, $ionicViewService, $state, $timeout, localize, subscriberService, loaderService,$cordovaCamera) {
     $scope.message = "";
     $scope.details = "";
     $scope.passwordExpired = $stateParams.passwordExpired;
