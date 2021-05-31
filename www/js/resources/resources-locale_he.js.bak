@@ -101,24 +101,8 @@
     { "key": "tommorow", "value": "מחר", "description": "" },
     { "key": "dateOrTimeIsMissing", "value": "חובה לבחור תאריך ושעה", "description": "" },
     { "key": "showBarcode", "value": "הצג ברקוד", "description": "" },
-    { "key": "acceptDelivery", "value": "העבר אלי", "description": "" },
-    { "key": "deliveryPointCreatetionTitle", "value": "הקמת נקודת מסירה", "description": "" },
-    { "key": "deliveryPoint_HP_TZ", "value": "ח.פ. / ת.ז.", "description": "" },
-    { "key": "deliveryPointBussinessName", "value": "שם העסק", "description": "" },
-    { "key": "deliveryPointFullName", "value": "שם מלא", "description": "" },
-    { "key": "deliveryPointPhone1", "value": "טלפון 1", "description": "" },
-    { "key": "deliveryPointPhone2", "value": "טלפון 2", "description": "" },
-    { "key": "deliveryEmail", "value": "כתובת מייל", "description": "" },
-    { "key": "deliveryPointStreet", "value": "רחוב", "description": "" },
-    { "key": "deliveryPointStreetNo", "value": "מספר רחוב", "description": "" },
-    { "key": "deliveryPointCity", "value": "עיר", "description": "" },
-    { "key": "deliveryPointZip", "value": "מיקוד", "description": "" },
-    { "key": "deliveryPointTD", "value": "ת.ד.", "description": "" },
-    { "key": "deliveryPointOpeningHours", "value": "שעות פעילות", "description": "" },
-    { "key": "deliveryPointContractImage", "value": "צילום חוזה", "description": "" },
-    { "key": "deliveryPointCreate", "value": "שמירה", "description": "" },
-    { "key": "deliveryPointNew", "value": "נקודה חדשה", "description": "" }
+    { "key": "acceptDelivery", "value": "העבר אלי", "description": "" }
 
-
+  
 
 ]

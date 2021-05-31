@@ -99,25 +99,7 @@
     { "key": "tommorow", "value": "tommorow", "description": "" },
     { "key": "dateOrTimeIsMissing", "value": "You must select date and time", "description": "" },
     { "key": "showBarcode", "value": "Show Barcode", "description": "" },
-    { "key": "acceptDelivery", "value": "Accpet Delivery", "description": "" },
-    { "key": "acceptDelivery", "value": "Accpet Delivery", "description": "" },
-    { "key": "deliveryPointCreatetionTitle", "value": "Create delivery point", "description": "" },
-    { "key": "deliveryPoint_HP_TZ", "value": "Bussiness ID", "description": "" },
-    { "key": "deliveryPointBussinessName", "value": "Bussiness Name", "description": "" },
-    { "key": "deliveryPointFullName", "value": "Full name", "description": "" },
-    { "key": "deliveryPointPhone1", "value": "Phone 1", "description": "" },
-    { "key": "deliveryPointPhone2", "value": "Phone2", "description": "" },
-    { "key": "deliveryEmail", "value": "Email", "description": "" },
-    { "key": "deliveryPointStreet", "value": "Street", "description": "" },
-    { "key": "deliveryPointStreetNo", "value": "Street No.", "description": "" },
-    { "key": "deliveryPointCity", "value": "City", "description": "" },
-    { "key": "deliveryPointZip", "value": "Zip code", "description": "" },
-    { "key": "deliveryPointTD", "value": "P.O. Box", "description": "" },
-    { "key": "deliveryPointOpeningHours", "value": "Opening Hours", "description": "" },
-    { "key": "deliveryPointContractImage", "value": "Take Photo", "description": "" },
-    { "key": "deliveryPointCreate", "value": "Save", "description": "" },
-    { "key": "deliveryPointNew", "value": "New delivery point", "description": "" }
-
+    { "key": "acceptDelivery", "value": "Accpet Delivery", "description": "" }
 
 ]
 

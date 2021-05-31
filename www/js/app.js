@@ -107,6 +107,8 @@ myApp.run(function ($ionicPlatform, $rootScope, $window, $state, $stateParams, $
       .state('app.about', { url: "/about", views: { 'menuContent': { templateUrl: "templates/about.html", controller: 'aboutController', data: { title: "about" } } } })
       .state('app.changePassword', { url: "/changePassword/:passwordExpired", views: { 'menuContent': { templateUrl: "templates/changePassword.html", controller: 'changePasswordController', data: { title: "changePassword" } } } })
       .state('app.notification', { url: "/notification", views: { 'menuContent': { templateUrl: "templates/notification.html", controller: 'notificationController', data: { title: "Notifications" } } } })
+      .state('app.deliveryPoint', { url: "/deliveryPoint", views: { 'menuContent': { templateUrl: "templates/deliveryPoint.html", controller: 'deliveryPointController', data: { title: "DeliveryPoint" } } } })
+      
 
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/signin/false');

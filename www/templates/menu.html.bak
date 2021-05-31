@@ -25,7 +25,6 @@
         <a nav-clear menu-close class="item item-icon-{{appSide}} item-dark" href="#/app/home"><i class="icon ion-home"></i>{{'myTasks' | i18n}}</a>
         <a nav-clear menu-close class="item item-icon-{{appSide}} item-dark" href="#/app/notification"><i class="icon ion-chatboxes"></i>{{'notifications' | i18n}}</a>
         <a nav-clear menu-close class="item item-icon-{{appSide}} item-dark" href="#/app/changePassword/false"><i class="icon ion-settings"></i>{{'changePassword' | i18n}}</a>
-        <a nav-clear menu-close class="item item-icon-{{appSide}} item-dark" href="#/app/deliveryPoint"><i class="icon ion-filing"></i>הקמת נקודת מסירה</a>
         <a nav-clear menu-close class="item item-icon-{{appSide}} item-dark " ng-click=" signout()"><i class=" icon ion-log-out"></i>{{'signOut' | i18n}}</a>
       </ion-list>
     </ion-content>

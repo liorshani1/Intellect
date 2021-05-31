@@ -1,0 +1,111 @@
+<ion-view view-title=" {{'deliveryPointCreatetionTitle' | i18n}}">
+    <ion-nav-bar class="bar-positive"></ion-nav-bar>
+    <ion-content>
+        <form name="DeliveryPointForm">
+            <div class="list list-inset">
+
+                <div class="item item-dark">
+                    {{'deliveryPointCreatetionTitle' | i18n}}
+                </div>
+
+                <label class="item item-input">
+                    <span class="input-label"> {{'deliveryPoint_HP_TZ' | i18n}} </span>
+                    <input type="text" ng-model="Subscriber.ClientAccountId" required>
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">{{'deliveryPointBussinessName' | i18n}}</span>
+                    <input type="text" ng-model="Subscriber.FirstName" required>
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label">{{'deliveryPointFullName' | i18n}}</span>
+                    <input type="text" ng-model="Subscriber.LastName" required>
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label">{{'deliveryPointPhone1' | i18n}}</span>
+                    <input type="text" ng-model="Subscriber.Phone1" required>
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label"> {{'deliveryPointPhone2' | i18n}}</span>
+                    <input type="text" ng-model="Subscriber.Phone2">
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label">{{'deliveryEmail' | i18n}}</span>
+                    <input type="email" ng-model="Subscriber.Email" required>
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label">{{'deliveryPointStreet' | i18n}}</span>
+                    <input type="text" ng-model="Subscriber.StreetName" required>
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label">{{'deliveryPointStreetNo' | i18n}}</span>
+                    <input type="text" ng-model="Subscriber.StreetNumber" required>
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label">{{'deliveryPointCity' | i18n}}</span>
+                    <input type="text" ng-model="Subscriber.City" required>
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label">{{'deliveryPointZip' | i18n}}</span>
+                    <input type="text" ng-model="Subscriber.Zip">
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label">{{'deliveryPointTD' | i18n}} </span>
+                    <input type="text" ng-model="Subscriber.PoBox">
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label">{{'deliveryPointOpeningHours' | i18n}} </span>
+                    <input type="text" ng-model="Subscriber.OpeningHours" required>
+                </label>
+
+
+            </div>
+
+            <div class="padding">
+                <button class="button button-block button-positive" ng-click="takeCommentPicture()">
+                   <i class="icon ion-camera"></i>
+                </button>
+            </div>
+
+            <div class="padding">
+                <button class="button button-block button-positive" ng-click="createDeliveryPoint()"
+                    ng-disabled="DeliveryPointForm.$invalid">
+                    {{'deliveryPointCreate' | i18n}}
+                </button>
+            </div>
+        </form>
+
+        <div class="padding">
+            <button class="button button-block button-positive" ng-click="newDeliveryPoint()">
+                {{'deliveryPointNew' | i18n}}
+            </button>
+        </div>
+        <div class="padding">
+            <span>
+                {{message}}
+            </span>
+        </div>
+        <div class="padding">
+            <span>
+                {{details}}
+            </span>
+        </div>
+        <div class="padding">
+            <span>
+                <a href="#/app/home"
+                    class="button button-clear button-large button-dark button-icon button-block ion-home button-outline">
+                    {{'continue' | i18n}}
+                </a>
+            </span>
+        </div>
+    </ion-content>
+</ion-view>
