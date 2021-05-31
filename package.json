@@ -20,13 +20,28 @@
     "cordova": "^10.0.0",
     "cordova-plugin-android-permissions": "^1.1.2",
     "cordova-plugin-barcodescanner": "^0.7.4",
+    "cordova-plugin-camera": "^2.4.1",
+    "cordova-plugin-console": "^1.0.1",
+    "cordova-plugin-device": "^1.1.1",
+    "cordova-plugin-geolocation": "^2.1.0",
+    "cordova-plugin-network-information": "^1.2.0",
+    "cordova-plugin-statusbar": "^2.1.1",
     "cordova-plugin-whitelist": "^1.2.1"
   },
   "cordova": {
     "plugins": {
       "cordova-plugin-whitelist": {},
       "cordova-plugin-android-permissions": {},
-      "cordova-plugin-barcodescanner": {}
+      "cordova-plugin-barcodescanner": {},
+      "cordova-plugin-camera": {
+        "CAMERA_USAGE_DESCRIPTION": "Allow app to use your camera",
+        "PHOTOLIBRARY_USAGE_DESCRIPTION": "Allow app to access your photos"
+      },
+      "cordova-plugin-device": {},
+      "cordova-plugin-geolocation": {},
+      "cordova-plugin-network-information": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-console": {}
     }
   }
 }
