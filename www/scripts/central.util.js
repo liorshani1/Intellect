@@ -5,8 +5,8 @@ globalParams = {
     
   
     //baseUrl: 'https://intelectdevelopwebapp-staging.azurewebsites.net',
-	baseUrl: 'https://intelectdevelopwebapp-test.azurewebsites.net',
-	//baseUrl: 'https://apps.intelect.co.il'
+	//baseUrl: 'https://intelectdevelopwebapp-test.azurewebsites.net',
+	baseUrl: 'https://apps.intelect.co.il'
     
     
   
