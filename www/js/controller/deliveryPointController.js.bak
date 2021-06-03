@@ -1,16 +1,13 @@
-﻿myApp.controller('deliveryPointController', function ($scope, $stateParams, $rootScope, subscriberService, cityService, $state) {
+﻿myApp.controller('deliveryPointController', function ($scope, $stateParams, $rootScope, subscriberService, cityService) {
     $scope.message = "";
     $scope.details = "";
     $scope.passwordExpired = $stateParams.passwordExpired;
     $scope.Subscriber = {}
-
     $rootScope.showMenu = true;
 
 
     $scope.cities = [];
     $scope.SelectedCity = false;
-
-
 
     $scope.onItemSelected = function (city) {
         $scope.Subscriber.City = null;
@@ -35,7 +32,7 @@
 
     }
     $scope.createDeliveryPoint = function () {
-      
+        debugger;
         $scope.details = "";
         console.log($scope.Subscriber);
         subscriberService.createDeliveryPoint($scope.Subscriber).then(

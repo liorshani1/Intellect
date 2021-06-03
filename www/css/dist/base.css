@@ -1,4 +1,4 @@
-﻿.card {
+.card {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
   padding-bottom: 1px;
   padding-top: 1px;
@@ -206,112 +206,24 @@
   height: calc(100vh - 150px);
   transform-origin: top right;
 }
-.view-container {
-  top: 0;
+.autocomplete-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
 }
-.bar-header .back-button {
+.autocomplete-container {
   position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  top: 100%;
+  left: 0;
   right: 0;
 }
-.popup-container.full-size .popup {
-  width: 100%;
-  height: 100%;
-  max-height: 100%;
+.autocomplete-container li {
+  text-decoration: none;
 }
-.key-value-list {
-  line-height: 24px;
-}
-.key-value-list > div {
-  border-bottom: 1px solid #f2f2f2;
-  padding: 4px 0;
-}
-.key-value-list .key {
-  color: #999;
-  font-size: 15px;
-  display: inline-block;
-  min-width: 30%;
-  vertical-align: top;
-}
-.key-value-list .value {
-  color: #222;
-  font-size: 19px;
-  display: inline-block;
-  max-width: 70%;
-  white-space: normal;
-  vertical-align: top;
-}
-.key-value-list .value.limit-height {
-  max-height: 55px;
-  overflow: auto;
-}
-.key-value-list .value.not-important {
-  color: #999;
-  font-size: 15px;
-}
-.key-value-list .item-assertive .key,
-.key-value-list .item-assertive .value {
-  color: #fff;
-}
-.key-value-list.lines .key {
-  display: block;
-}
-.key-value-list.lines .value {
-  display: block;
-}
-.key-value-list .item-dark .key,
-.key-value-list .item-dark .value {
-  color: #FFF;
-}
-.deliveryActionDisplay {
-  margin: 0 10px;
-  /*opacity: 0.9;*/
-}
-.deliveryActionDisplay.deliveryActionDisplay_0 {
-  background-color: #648bbb;
-  color: #fff;
-}
-.deliveryActionDisplay.deliveryActionDisplay_1 {
-  background-color: #89be5c;
-  color: #fff;
-}
-.deliveryActionDisplay.deliveryActionDisplay_2 {
-  background-color: #ebb15b;
-  color: #fff;
-}
-.deliveryActionDisplay.deliveryActionDisplay_3 {
-  background-color: #c9542a;
-  color: #fff;
-}
-.deliveryActionDisplay.activated {
-  opacity: 0.8;
-  border: 1px solid #a2a2a2;
-}
-label.item.item-radio {
-  direction: ltr;
-  text-align: right;
-}
-element.style {
-  right: auto;
-  left: 0;
-  padding: 0 16px 0 48px;
-}
-.item-input {
-  padding: 6px 16px 5px 0px;
-}
-.item-select select {
-  right: auto;
-  left: 0;
-  padding: 0 16px 0 48px;
-}
-.item-select:after {
-  right: auto;
-  left: 16px;
-}
-
 .scroll-info {
-  max-height: 200px;
-}
-
-::placeholder {
-  font-size: 16px;
+  height: 200px;
 }

@@ -27,6 +27,8 @@ myApp.controller('signinController', function ($scope, $location, $stateParams, 
                     });
                     $rootScope.showMenu = true;
 
+                    $rootScope.roleDistributer = localStorage["role"] == 2 || localStorage["role"] == 100; // admin or Distributor
+
                     $state.go('app.home');
                 },
                 function (data) {

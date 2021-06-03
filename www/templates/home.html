@@ -1,5 +1,4 @@
 <ion-view title="{{ 'myTasks' | i18n}}">
-    
 
     <ion-content >
         <ion-refresher pulling-text="Pull to refresh..." refreshing-icon="ion-load-c ion-spin"
@@ -7,17 +6,12 @@
         </ion-refresher>
         <div ng-show="!online">network is not avilable </div>
 
-
-      
-
-
         <div class="list" ng-if="(!data.Routes || !data.Routes.length) && (!data.Districts || !data.Districts.length) && (!data.DeliveryRoutes || !data.DeliveryRoutes.length)">
             <div class="item  item-dark white-space-wrap" >
                 {{'noTasks' | i18n}}
 
             </div>
         </div>
-
       
         <!--Routes for Distribution-->
         <div class="list card" data-ng-repeat="route in data.Routes  | filter:{ IsForDelivery: false }" >

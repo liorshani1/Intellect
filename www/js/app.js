@@ -66,6 +66,8 @@ myApp.run(function ($ionicPlatform, $rootScope, $window, $state, $stateParams, $
     notificationService.start();
   }, true);
 
+
+  
   $rootScope.appLanguage = "he";
   $rootScope.appDirection = "{direction:'rtl'}";
   $rootScope.appSide = "right";
@@ -75,6 +77,13 @@ myApp.run(function ($ionicPlatform, $rootScope, $window, $state, $stateParams, $
 
   localize.setLanguage($rootScope.appLanguage);
 
+  $rootScope.roleDistributer = localStorage["role"] == 2 || localStorage["role"] == 100; // admin or Distributor
+
+  if (localStorage["username"] !=null)
+      {
+        $rootScope.showMenu=true;
+        $state.go('app.home');
+      }
 })
 
   .config(function ($stateProvider, $urlRouterProvider, $compileProvider, $provide, $httpProvider, debug) {

@@ -3,9 +3,11 @@ myApp.controller('homeController', function ($scope, $location, $stateParams, $r
   $scope.message = "";
   $scope.data = null;
 
+  
+  $rootScope.showMenu = true;
+  
   //HS
   var getNotifications = function () {
-    //console.log('running: ' + notificationService.data.running);
     notificationService.start().then(
       function (data) {
         //console.log(data);
@@ -14,21 +16,10 @@ myApp.controller('homeController', function ($scope, $location, $stateParams, $r
       })
   }
 
-  /**** SINGLE USER LOGIN ****/
-  //////////HS[2016-nov-25] - Check valid user session
-  ////////var checkUserSession = function () {
-  ////////    userService.start(localStorage["cus"]).then(
-  ////////        function (data) {
-  ////////            //console.log(data);
-  ////////        },
-  ////////        function () {
-  ////////        })
-  ////////}
+ 
 
   var reload = function () {
-    /**** SINGLE USER LOGIN ****/
-    //////////HS[2016-nov-25] - Check valid user session
-    ////////checkUserSession();
+    
 
     getNotifications(); //HS
 
@@ -124,40 +115,18 @@ myApp.controller('homeController', function ($scope, $location, $stateParams, $r
   //HS - End
 
   $scope.deliveryRouteSelected = function (route) {
-    //if (route.StartTime) {
       $state.go('app.deliveryItemList', { distributionId: route.DistributionId, routeId: route.RouteId, part: route.Part });
-    //} else {
-    //  routeService.routeStart(route.DistributionId, route.RouteId, route.Part).then(
-    //    function (data) {
-    //      $state.go('app.deliveryItemList', { distributionId: route.DistributionId, routeId: route.RouteId, part: route.Part });
-    //    },
-    //    function (data) {
-    //    })
-    //}
   }
 
 
 
   $scope.routeStart = function (distributionId, routeId, part) {
-    //HS - moved to _setRoutePreparations function
-    //console.log('routeStart');
-    //routeService.routeStart(distributionId, routeId, part).then(
-    //    function (data) {
-    //        $state.go('app.delivery', { distributionId: distributionId, routeId: routeId });
-    //    },
-    //    function (data) {
-    //    })
-
-    //HS
+    
     _checkRoutePreparations(distributionId, routeId, part, false);
   }
 
   $scope.routeContinue = function (distributionId, routeId, part) {
-    //HS - moved to _setRoutePreparations function
-    //console.log('routeContinue');
-    //$state.go('app.delivery', { distributionId: distributionId, routeId: routeId, part: part });
-
-    //HS
+   
     _checkRoutePreparations(distributionId, routeId, part, true);
   }
 
@@ -194,18 +163,10 @@ myApp.controller('homeController', function ($scope, $location, $stateParams, $r
     //console.log('hasCount: ' + fda['hasCount']);
 
     if (!fda['hasCount']) {
-      //alert('Calling API');
-      //initRouteService.setRouteId(distributionId, routeId, part, false).then(
-      //HS [2016-Aug-22] - Passed autoSetCurrentItem=true instead of false to set the undelivered point as current point
+      
       routeService.setRouteId(distributionId, routeId, part, true).then(
         function (data) {
-          //var routeData = initRouteService.data.currentRoute;
           var routeData = routeService.data.currentRoute;
-
-          //var routeNew = _.countBy(routeData.items, function (item) { return item.CompareData == 1; })[true] || 0;
-          //var routeCanceled = routeData.removedPoints.length; //_.countBy(routeData.items, function (item) { return (item.removedPoints && item.removedPoints.length > 0); })[true] || 0;
-          //var routeComplaints = _.countBy(routeData.items, function (item) { return (item.complaints && item.complaints.length>0); })[true] || 0;
-          //var routeChanged = _.countBy(routeData.items, function (item) { return item.CompareData >= 3 && item.CompareData <= 6; })[true] || 0;
 
           var routeNew = _.countBy(routeData.items, function (item) { return (item.CompareTypesString != null && item.CompareTypesString.indexOf('1') > -1); })[true] || 0;
           var routeCanceled = routeData.removedPoints.length; //_.countBy(routeData.items, function (item) { return (item.removedPoints && item.removedPoints.length > 0); })[true] || 0;
@@ -230,23 +191,6 @@ myApp.controller('homeController', function ($scope, $location, $stateParams, $r
           findAndSet(distributionApproval, 'distributionId', distributionId, 'routeId', routeId, 'hasCount', true);
           localStorage.setItem("distribution_approval", JSON.stringify(distributionApproval));
 
-          //alert('routeContinue: \n' + JSON.stringify(JSON.parse(localStorage.getItem("distribution_approval"))));
-
-          //if ((fda['canceledCount'] == -1 || (fda['canceledCount'] > 0 && fda['canceled']))
-          //    && (fda['newCount'] == -1 || (fda['newCount'] > 0 && fda['new']))
-          //    && (fda['complaintsCount'] == -1 || (fda['complaintsCount'] > 0 && fda['complaints']))
-          //    && (fda['changedCount'] == -1 || (fda['changedCount'] > 0 && fda['changed']))) {
-          //    //alert('allow to proceed');
-          //    _setRoutePreparations(distributionId, routeId, part, isRouteStarted);
-          //}
-          //else {
-          //    //alert('אנא אשר את התוכן בכל המסכים המקדימים');
-          //    _showPreparationMessage(distributionId, routeId, part);
-          //}
-
-          //console.log('changedCount: ' + fda['changedCount']);
-          //console.log('routeChanged: ' + routeChanged);
-
           //HS [2016-may-17] - For 'changes' tab, check 'changed' checkbox and it's count ONLY
           if ((fda['changedCount'] == -1 || (fda['changedCount'] > 0 && fda['changed']))) {
             //alert('allow to proceed');
@@ -258,62 +202,12 @@ myApp.controller('homeController', function ($scope, $location, $stateParams, $r
           }
 
 
-          //var routeAll = routeData.items.length;
-          //var routeNew = _.countBy(routeData.items, function (item) { return item.IsNew; })[true] || 0;
-          //var routeCanceled = _.countBy(routeData.items, function (item) { return item.complaints && item.complaints.length; })[true] || 0;
-          //var routeComplaints = _.countBy(routeData.items, function (item) { return item.IsNew; })[true] || 0;
-
-          //initRouteService.loadRouteComplaints(distributionId, routeId, part, false).then(
-          //function (data) {
-          //    //var routeAll = routeData.items.length;
-          //    var routeNew = _.countBy(routeData.items, function (item) { return item.IsNew; })[true] || 0;
-          //    var routeCanceled = 0;
-          //    var routeComplaints = _.countBy(routeData.items, function (item) { return (item.complaints && item.complaints.length > 0); })[true] || 0;
-
-          //    findAndSet(distributionApproval, 'distributionId', distributionId, 'routeId', routeId, 'canceled', fda['canceled']);
-          //    if (routeCanceled > 0) findAndSet(distributionApproval, 'distributionId', distributionId, 'routeId', routeId, 'canceledCount', routeCanceled);
-          //    findAndSet(distributionApproval, 'distributionId', distributionId, 'routeId', routeId, 'new', fda['new']);
-          //    if (routeNew > 0) findAndSet(distributionApproval, 'distributionId', distributionId, 'routeId', routeId, 'newCount', routeNew);
-          //    findAndSet(distributionApproval, 'distributionId', distributionId, 'routeId', routeId, 'complaints', fda['complaints']);
-          //    if (routeComplaints > 0) findAndSet(distributionApproval, 'distributionId', distributionId, 'routeId', routeId, 'complaintsCount', routeComplaints);
-          //    findAndSet(distributionApproval, 'distributionId', distributionId, 'routeId', routeId, 'hasCount', true);
-          //    localStorage.setItem("distribution_approval", JSON.stringify(distributionApproval));
-
-          //    //alert('routeContinue: \n' + JSON.stringify(JSON.parse(localStorage.getItem("distribution_approval"))));
-
-          //    if ((fda['canceledCount'] == -1 || (fda['canceledCount'] > 0 && fda['canceled']))
-          //        && (fda['newCount'] == -1 || (fda['newCount'] > 0 && fda['new']))
-          //        && (fda['complaintsCount'] == -1 || (fda['complaintsCount'] > 0 && fda['complaints']))) {
-          //        //alert('allow to proceed');
-          //        _setRoutePreparations(distributionId, routeId, part, isRouteStarted);
-          //    }
-          //    else {
-          //        //alert('אנא אשר את התוכן בכל המסכים המקדימים');
-          //        _showPreparationMessage(distributionId, routeId, part);
-          //    }
-          //},
-          //function () {
-          //})
         },
         function () {
         })
     }
     else {
-      //if ((fda['canceledCount'] == -1 || (fda['canceledCount'] > 0 && fda['canceled']))
-      //    && (fda['newCount'] == -1 || (fda['newCount'] > 0 && fda['new']))
-      //    && (fda['complaintsCount'] == -1 || (fda['complaintsCount'] > 0 && fda['complaints']))
-      //    && (fda['changedCount'] == -1 || (fda['changedCount'] > 0 && fda['changed']))) {
-      //    //alert('allow to proceed');
-      //    _setRoutePreparations(distributionId, routeId, part, isRouteStarted);
-      //}
-      //else {
-      //    //alert('אנא אשר את התוכן בכל המסכים המקדימים');
-      //    _showPreparationMessage(distributionId, routeId, part);
-      //}
-
-      //console.log('changedCount: ' + fda['changedCount']);
-      //console.log('changed: ' + fda['changed']);
-      //console.log('condition: ' + (fda['changedCount'] == -1 || (fda['changedCount'] > 0 && fda['changed'])));
+     
       //HS [2016-may-17] - For 'changes' tab, check 'changed' checkbox and it's count ONLY
       if ((fda['changedCount'] == -1 || (fda['changedCount'] > 0 && fda['changed']))) {
         //alert('allow to proceed');
@@ -380,28 +274,6 @@ myApp.controller('homeController', function ($scope, $location, $stateParams, $r
                 //HS [15-feb-2016] - Passed enableDelivery flag
                 $state.go('app.delivery', { distributionId: distributionId, routeId: routeId, part: part, enableDelivery: 1, triggeredFrom: 'home' });
 
-                //HS [2016-Apr-25] - Called route start API in the setRoutePreparations API and simply moved it's the success code outside of it
-                //routeService.routeStart(distributionId, routeId, part).then(
-                //    function (data) {
-
-                //        //HS [15-feb-2016] - To fix the enableDelivery flag issue in the delivery page
-                //        routeService.setRouteId(distributionId, routeId, part).then(
-                //            function (data) {
-                //                //alert('routeService.data.currentRoute');
-                //                if (routeService.data.currentRoute) {
-                //                    //alert('routeService.data.currentRoute: true');
-                //                    routeService.data.currentRoute.routeStartTime = new Date();
-                //                }
-                //            },
-                //            function () {
-                //            })
-
-                //        //HS [15-feb-2016] - Passed enableDelivery flag
-                //        $state.go('app.delivery', { distributionId: distributionId, routeId: routeId, part: part, enableDelivery: 1 });
-                //    },
-                //    function (data) {
-                //    })
-
               }
               else { //routeContinue
                 console.log('routeContinue');
@@ -433,26 +305,6 @@ myApp.controller('homeController', function ($scope, $location, $stateParams, $r
           //HS [2017-oct-26] - Passed triggeredFrom param to set autoSetCurrentItem param in routeService.setRouteId call in deliveryController.js file
           //HS [15-feb-2016] - Passed enableDelivery flag
           $state.go('app.delivery', { distributionId: distributionId, routeId: routeId, part: part, enableDelivery: 1, triggeredFrom: 'home' });
-
-          //HS [2016-Apr-25] - Called route start API in the setRoutePreparations API and simply moved it's the success code outside of it
-          //routeService.routeStart(distributionId, routeId, part).then(
-          //    function (data) {
-
-          //        //HS [15-feb-2016] - To fix the enableDelivery flag issue in the delivery page
-          //        routeService.setRouteId(distributionId, routeId, part).then(
-          //            function (data) {
-          //                if (routeService.data.currentRoute) {
-          //                    routeService.data.currentRoute.routeStartTime = new Date();
-          //                }
-          //            },
-          //            function () {
-          //            })
-
-          //        //HS [15-feb-2016] - Passed enableDelivery flag
-          //        $state.go('app.delivery', { distributionId: distributionId, routeId: routeId, part: part, enableDelivery: 1 });
-          //    },
-          //    function (data) {
-          //    })
 
         }
         else { //routeContinue

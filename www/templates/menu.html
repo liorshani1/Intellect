@@ -3,14 +3,14 @@
   <ion-side-menu-content>
     <ion-nav-bar class="bar-positive" align-title="center">
 
-
+      
       <ion-nav-buttons side="left">
-        <button ng-show="showMenu" class="button button-icon button-clear ion-navicon" menu-toggle="left" style="position:absolute;left:11px;"></button>
-        
+        <button  class="button button-icon button-clear ion-navicon" menu-toggle="left" style="position:absolute;left:11px;display: block;"></button>
       </ion-nav-buttons>
-      <ion-nav-back-button side="right" class="button button-icon button-clear  ion-chevron-{{appSide}}">
-      </ion-nav-back-button>
-
+      <!-- <ion-nav-back-button side="right" class="button button-icon button-clear  ion-chevron-{{appSide}}">
+        
+      </ion-nav-back-button> -->
+      
     </ion-nav-bar>
 
     <ion-nav-view name="menuContent" style="direction:rtl;"></ion-nav-view>
@@ -19,13 +19,16 @@
   <ion-side-menu side="left" class="dark-bg">
     <header class="bar bar-header bar-dark">
       <h1 class="title">{{'menu' | i18n}}</h1>
+      
     </header>
     <ion-content class="has-header">
       <ion-list>
+        
         <a nav-clear menu-close class="item item-icon-{{appSide}} item-dark" href="#/app/home"><i class="icon ion-home"></i>{{'myTasks' | i18n}}</a>
         <a nav-clear menu-close class="item item-icon-{{appSide}} item-dark" href="#/app/notification"><i class="icon ion-chatboxes"></i>{{'notifications' | i18n}}</a>
         <a nav-clear menu-close class="item item-icon-{{appSide}} item-dark" href="#/app/changePassword/false"><i class="icon ion-settings"></i>{{'changePassword' | i18n}}</a>
-        <a nav-clear menu-close class="item item-icon-{{appSide}} item-dark" href="#/app/deliveryPoint"><i class="icon ion-filing"></i>{{'deliveryPointCreatetionTitle' | i18n}}</a>
+        <a ng-if="roleDistributer"
+        nav-clear menu-close class="item item-icon-{{appSide}} item-dark" href="#/app/deliveryPoint" ><i class="icon ion-filing"></i>הקמת נקודת מסירה</a>
         <a nav-clear menu-close class="item item-icon-{{appSide}} item-dark " ng-click=" signout()"><i class=" icon ion-log-out"></i>{{'signOut' | i18n}}</a>
       </ion-list>
     </ion-content>
