@@ -2,7 +2,7 @@
 
     $rootScope.showMenu = true;
 
-    $scope.signout = function () {
+     $scope.signout = function () {
 
         userService.signout();
         //localStorage["username"] = "";

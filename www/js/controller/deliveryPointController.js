@@ -3,14 +3,11 @@
     $scope.details = "";
     $scope.passwordExpired = $stateParams.passwordExpired;
     $scope.Subscriber = {}
-
     $rootScope.showMenu = true;
 
 
     $scope.cities = [];
     $scope.SelectedCity = false;
-
-
 
     $scope.onItemSelected = function (city) {
         $scope.Subscriber.City = null;

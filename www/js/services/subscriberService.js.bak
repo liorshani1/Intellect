@@ -11,7 +11,7 @@ myApp.factory('subscriberService', function ($http, $q, $state, $rootScope, load
     
     deliveryPoint.CoordinatesStringify=geolocation.stringifiedPosition();
 
-    $http.post(globalParams.baseUrl + '/Subscribers/SaveDeliverPoint', deliveryPoint).
+    $http.post(globalParams.baseUrl + '/SubscribersAPI/Save', deliveryPoint).
     success(function (data, status, headers, config) {
       if (data && data.Results) {
         
