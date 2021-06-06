@@ -1,4 +1,4 @@
-﻿myApp.controller('deliveryPointController', function ($scope, $stateParams, $rootScope, subscriberService, cityService, $state) {
+﻿myApp.controller('deliveryPointController', function ($scope, $stateParams, $rootScope, subscriberService, cityService, $cordovaCamera) {
     $scope.message = "";
     $scope.details = "";
     $scope.passwordExpired = $stateParams.passwordExpired;
