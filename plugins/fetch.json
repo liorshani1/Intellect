@@ -70,5 +70,37 @@
     },
     "is_top_level": true,
     "variables": {}
+  },
+  "cordova-plugin-request-location-accuracy": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-request-location-accuracy"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova.plugins.diagnostic": {
+    "source": {
+      "type": "registry",
+      "id": "cordova.plugins.diagnostic@6.0.3"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-androidx-adapter": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-androidx-adapter"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-androidx": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-androidx"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }

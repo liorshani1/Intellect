@@ -1,7 +1,7 @@
 <ion-view view-title=" {{'deliveryPointCreatetionTitle' | i18n}}">
 
     <ion-content>
-        <form name="DeliveryPointForm">
+        <form name="form" id="form">
             <div class="list list-inset">
 
                 <div class="item item-dark">
@@ -10,47 +10,90 @@
 
                 <label class="item item-input">
                     <span class="input-label"> {{'deliveryPoint_HP_TZ' | i18n}} </span>
-                    <input type="text" ng-model="Subscriber.ClientAccountId" autocomplete="off" required>
+                    <input type="text" name="ClientAccountId" ng-model="Subscriber.ClientAccountId" autocomplete="off"
+                        required>
+
                 </label>
+             
+                <div ng-show="form.$submitted || form.ClientAccountId.$touched">
+                    <div class="required-field" ng-show="form.ClientAccountId.$error.required">
+                        {{'val_tz' | i18n}}
+                    </div>
+                </div>
+
                 <label class="item item-input">
                     <span class="input-label">{{'deliveryPointBussinessName' | i18n}}</span>
-                    <input type="text" ng-model="Subscriber.FirstName" autocomplete="off" required>
+                    <input type="text" name="FirstName" ng-model="Subscriber.FirstName" autocomplete="off" required>
                 </label>
+                <div ng-show="form.$submitted || form.FirstName.$touched">
+                    <div class="required-field" ng-show="form.FirstName.$error.required">
+                        {{'val_bussinessName' | i18n}}
+                       
+                    </div>
+                </div>
 
                 <label class="item item-input">
                     <span class="input-label">{{'deliveryPointFullName' | i18n}}</span>
-                    <input type="text" ng-model="Subscriber.LastName" autocomplete="off" required>
+                    <input type="text" name="LastName" ng-model="Subscriber.LastName" autocomplete="off" required>
                 </label>
+                <div ng-show="form.$submitted || form.LastName.$touched">
+                    <div class="required-field" ng-show="form.LastName.$error.required">
+                        {{'val_name' | i18n}}
+                      
+                    </div>
+                </div>
 
                 <label class="item item-input">
                     <span class="input-label">{{'deliveryPointPhone1' | i18n}}</span>
-                    <input type="text" ng-model="Subscriber.Phone1" autocomplete="off" required>
+                    <input type="text" name="Phone1" ng-model="Subscriber.Phone1" autocomplete="off" required>
                 </label>
-
-                <label class="item item-input">
-                    <span class="input-label"> {{'deliveryPointPhone2' | i18n}}</span>
-                    <input type="text" ng-model="Subscriber.Phone2">
-                </label>
+                <div ng-show="form.$submitted || form.Phone1.$touched">
+                    <div class="required-field" ng-show="form.Phone1.$error.required">
+                        {{'val_phone' | i18n}}
+                      
+                    </div>
+                </div>
 
                 <label class="item item-input">
                     <span class="input-label">{{'deliveryEmail' | i18n}}</span>
-                    <input type="email" ng-model="Subscriber.Email" autocomplete="off" required>
+                    <input type="email" name="Email" ng-model="Subscriber.Email" autocomplete="off" required>
                 </label>
+                <div ng-show="form.$submitted || form.Email.$touched">
+                    <div class="required-field" ng-show="form.Email.$error.required">
+                        {{'val_EmailRequired' | i18n}}
+               
+                    </div>
+                    <div class="required-field" ng-show="form.Email.$error.email">
+                        {{'val_EmailNotValid' | i18n}}
+                        
+                    </div>
+                </div>
 
                 <label class="item item-input">
                     <span class="input-label">{{'deliveryPointStreet' | i18n}}</span>
-                    <input type="text" ng-model="Subscriber.StreetName" autocomplete="off" required>
+                    <input type="text" name="StreetName" ng-model="Subscriber.StreetName" autocomplete="off" required>
                 </label>
+                <div ng-show="form.$submitted || form.StreetName.$touched">
+                    <div class="required-field" ng-show="form.StreetName.$error.required">
+                        {{'val_street' | i18n}}
+                    </div>
+                </div>
 
                 <label class="item item-input">
                     <span class="input-label">{{'deliveryPointStreetNo' | i18n}}</span>
-                    <input type="text" ng-model="Subscriber.StreetNumber" autocomplete="off" required>
+                    <input type="text" name="StreetNumber" ng-model="Subscriber.StreetNumber" autocomplete="off"
+                        required>
                 </label>
+                <div ng-show="form.$submitted || form.StreetNumber.$touched">
+                    <div class="required-field" ng-show="form.StreetNumber.$error.required">
+                        {{'val_streetNumber' | i18n}}
+                    </div>
+                </div>
 
                 <ion-item class="autocomplete-wrapper">
                     <div class="row">
                         <div class="col-90">
-                            <input type="text" class="city-autocomplete" autocomplete="off"
+                            <input type="text" class="city-autocomplete" autocomplete="off" name="City"
                                 placeholder="{{'deliveryPointCity' | i18n}}" ng-model="Subscriber.City"
                                 ng-keyup="searchForCity($event)" required />
                         </div>
@@ -65,45 +108,65 @@
                         </ion-item>
                     </ion-scroll>
                 </ion-item>
+                <div ng-show="form.$submitted || form.City.$touched">
+                    <div class="required-field" ng-show="form.City.$error.required">
+                        {{'val_city' | i18n}}
+                    </div>
+                </div>
+
+                <label class="item item-input">
+                    <span class="input-label">{{'deliveryPointOpeningHours' | i18n}} </span>
+                    <input type="text" name="OpeningHours" ng-model="Subscriber.OpeningHours" autocomplete="off"
+                        placeholder="HH:MM - HH:MM"
+                        required>
+                </label>
+                <div ng-show="form.$submitted || form.OpeningHours.$touched">
+                    <div class="required-field" ng-show="form.OpeningHours.$error.required">
+                        {{'val_openinghours' | i18n}}
+                    </div>
+                </div>
+
+                <hr />
+                    
+                <label class="item item-input">
+                    <span class="input-label"> {{'deliveryPointPhone2' | i18n}}</span>
+                    <input type="text" ng-model="Subscriber.Phone2">
+                </label>
 
                 <label class="item item-input">
                     <span class="input-label">{{'deliveryPointZip' | i18n}}</span>
-                    <input type="text" ng-model="Subscriber.Zip" autocomplete="off">
+                    <input type="text" name="Zip" ng-model="Subscriber.Zip" autocomplete="off">
                 </label>
 
                 <label class="item item-input">
                     <span class="input-label">{{'deliveryPointTD' | i18n}} </span>
-                    <input type="text" ng-model="Subscriber.PoBox" autocomplete="off">
+                    <input type="text" name="PoBox" ng-model="Subscriber.PoBox" autocomplete="off">
                 </label>
 
-                <label class="item item-input">
-                    <span class="input-label">{{'deliveryPointOpeningHours' | i18n}} </span>
-                    <input type="text" ng-model="Subscriber.OpeningHours" autocomplete="off" required>
-                </label>
 
 
             </div>
 
             <div class="padding">
                 <button class="button button-block button-positive" ng-click="takeCommentPicture()">
-                    <i class="icon ion-camera"></i>
+                    {{'deliveryPointContractImage' | i18n}}  <i class="icon ion-camera"></i>
                 </button>
             </div>
 
             <div class="padding">
-                <button class="button button-block button-positive" ng-click="createDeliveryPoint()"
-                    ng-disabled="DeliveryPointForm.$invalid">
+                <button class="button button-block button-positive" ng-click="createDeliveryPoint();"
+                    ng-disabled="form.$invalid">
                     {{'deliveryPointCreate' | i18n}}
                 </button>
             </div>
         </form>
 
         <div class="padding">
-            <button class="button button-block button-positive" ng-click="newDeliveryPoint()">
+            <button class="button button-block button-positive"  ng-click="newDeliveryPoint();">
                 {{'deliveryPointNew' | i18n}}
             </button>
         </div>
-        <div ng-if="message" class="padding">
+        <div ng-if="message" class="padding response-message" ng-class="successResponse ? 'success-message' : 'failed-message'" >
             <span>
                 {{message}}
             </span>

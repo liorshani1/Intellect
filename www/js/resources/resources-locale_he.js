@@ -117,8 +117,18 @@
     { "key": "deliveryPointOpeningHours", "value": "שעות פעילות", "description": "" },
     { "key": "deliveryPointContractImage", "value": "צילום חוזה", "description": "" },
     { "key": "deliveryPointCreate", "value": "שמירה", "description": "" },
-    { "key": "deliveryPointNew", "value": "נקודה חדשה", "description": "" }
-
-
+    { "key": "deliveryPointNew", "value": "נקודה חדשה", "description": "" },
+    { "key": "val_tz", "value": " ח.פ. או תעודת זהות שדה חובה", "description": "" },
+    { "key": "val_bussinessName", "value": "שם עסק שדה חובה", "description": "" },
+    { "key": "val_name", "value": "  שם שדה חובה", "description": "" },
+    { "key": "val_phone", "value": "  טלפון שדה חובה", "description": "" },
+    { "key": "val_EmailRequired", "value": "אימייל שדה חובה", "description": "" },
+    { "key": "val_EmailNotValid", "value": "אימייל אינו תקין", "description": "" },
+    { "key": "val_street", "value": "רחוב שדה חובה", "description": "" },
+    { "key": "val_streetNumber", "value": "מספר רחוב שדה חובה", "description": "" },
+    { "key": "val_city", "value": "עיר שדה חובה", "description": "" },
+    { "key": "val_openinghours", "value": "שעות פעילות שדה חובה", "description": "" },
+    { "key": "deliveryPointContractImage", "value": " צילום חוזה ", "description": "" }
+    
 
 ]

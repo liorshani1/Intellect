@@ -116,7 +116,19 @@
     { "key": "deliveryPointOpeningHours", "value": "Opening Hours", "description": "" },
     { "key": "deliveryPointContractImage", "value": "Take Photo", "description": "" },
     { "key": "deliveryPointCreate", "value": "Save", "description": "" },
-    { "key": "deliveryPointNew", "value": "New delivery point", "description": "" }
+    { "key": "deliveryPointNew", "value": "New delivery point", "description": "" },
+    { "key": "val_tz", "value": " Bussiness ID is required field", "description": "" },
+    { "key": "val_bussinessName", "value": "Bussiness name is required field", "description": "" },
+    { "key": "val_name", "value": "Full name is required field", "description": "" },
+    { "key": "val_phone", "value": "Phone number is required field", "description": "" },
+    { "key": "val_EmailRequired", "value": "Email is required field", "description": "" },
+    { "key": "val_EmailNotValid", "value": "Please type valid email", "description": "" },
+    { "key": "val_street", "value": "Street is required field", "description": "" },
+    { "key": "val_streetNumber", "value": "Street no is required field", "description": "" },
+    { "key": "val_city", "value": "City is required field", "description": "" },
+    { "key": "val_openinghours", "value": "Opening Hours is required field", "description": "" },
+    { "key": "deliveryPointContractImage", "value": " Contract copy ", "description": "" }
+    
 
 
 ]

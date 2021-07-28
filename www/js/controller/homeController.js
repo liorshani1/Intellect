@@ -5,6 +5,56 @@ myApp.controller('homeController', function ($scope, $location, $stateParams, $r
 
   
   $rootScope.showMenu = true;
+
+
+  // LS GPS Enable for Android 
+  var turnGPSOn = function () {
+
+    cordova.plugins.locationAccuracy.canRequest(function (canRequest) {
+      if (canRequest) {
+        cordova.plugins.locationAccuracy.request(function (success) {
+           userService.updateUserGPS(true);
+        }, function (error) {
+        }, cordova.plugins.locationAccuracy.REQUEST_PRIORITY_HIGH_ACCURACY);
+      } else {
+        alert("Can't request");
+        // request location permission and try again
+      }
+    });
+  }
+  var showGPSPopup = function () {
+
+    var myPopup = $ionicPopup.show({
+      template:"<div style='direction:rtl'>שירותי המיקום אינם מופעלים!    אי הפעלת שירותי מיקום שולל זכאותך לבונוס</div>",
+      // templateUrl: 'templates/deliveryItemAcceptDelivery.html',
+      cssClass: 'full-size',
+      title: "הפעלת מיקום",
+      scope: $scope,
+      buttons: [
+        { text: "השאר כבוי" },
+        {
+          text: "הפעל שירותי מיקום" ,
+          type: 'button-positive',
+          onTap: function (e) {
+            turnGPSOn();
+
+          }
+        }
+      ]
+    });
+  }
+  //LS
+  cordova.plugins.diagnostic.isGpsLocationEnabled(function (enabled) {
+    // alert("GPS location is " + (enabled ? "enabled" : "disabled"));
+    if (!enabled) {
+      showGPSPopup();
+     
+    }
+  }, function (error) {
+    console.error("The following error occurred: " + error);
+  });
+  // END of GPS android
+
   
   //HS
   var getNotifications = function () {

@@ -1,9 +1,11 @@
-﻿myApp.controller('deliveryPointController', function ($scope, $stateParams, $rootScope, subscriberService, cityService, $cordovaCamera) {
+﻿myApp.controller('deliveryPointController', function ($scope, $stateParams, $rootScope, subscriberService, cityService, $cordovaCamera,$state) {
+   
     $scope.message = "";
     $scope.details = "";
     $scope.passwordExpired = $stateParams.passwordExpired;
     $scope.Subscriber = {}
     $rootScope.showMenu = true;
+    $scope.successResponse=true;
 
 
     $scope.cities = [];
@@ -39,15 +41,19 @@
             function (data) {
                 $scope.Subscriber.SubscriberId = data.SubscriberId;
                 $scope.message = "נקודה הוקמה בהצלחה";
+                $scope.successResponse=true;
 
             },
             function (data) {
+                $scope.successResponse=false;
                 $scope.message = " אירעה שגיאה"
                 $scope.details = data;
             });
     }
 
     $scope.newDeliveryPoint = function () {
+        
+        $scope.message='';
 
         $scope.Subscriber = {
             SubscriberId: '',
@@ -70,6 +76,7 @@
             OpeningHours: '',
             CoordinatesStringify: ''
         }
+
     }
 
     $scope.newDeliveryPoint();
@@ -141,6 +148,8 @@
                     }
                 });
 
+                $scope.successResponse=true;
+
             }, function (err) {
                 // error
                 alert(err);
@@ -148,6 +157,7 @@
             });
         } catch (error) {
             $scope.message = " צילום נכשל "
+            $scope.successResponse=false;
         }
 
 

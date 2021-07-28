@@ -1,0 +1,124 @@
+<ion-view view-title=" {{'deliveryPointCreatetionTitle' | i18n}}">
+
+    <ion-content>
+        <form name="DeliveryPointForm">
+            <div class="list list-inset">
+
+                <div class="item item-dark">
+                    {{'deliveryPointCreatetionTitle' | i18n}}
+                </div>
+
+                <label class="item item-input">
+                    <span class="input-label"> {{'deliveryPoint_HP_TZ' | i18n}} </span>
+                    <input type="text" ng-model="Subscriber.ClientAccountId" autocomplete="off" required>
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">{{'deliveryPointBussinessName' | i18n}}</span>
+                    <input type="text" ng-model="Subscriber.FirstName" autocomplete="off" required>
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label">{{'deliveryPointFullName' | i18n}}</span>
+                    <input type="text" ng-model="Subscriber.LastName" autocomplete="off" required>
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label">{{'deliveryPointPhone1' | i18n}}</span>
+                    <input type="text" ng-model="Subscriber.Phone1" autocomplete="off" required>
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label"> {{'deliveryPointPhone2' | i18n}}</span>
+                    <input type="text" ng-model="Subscriber.Phone2">
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label">{{'deliveryEmail' | i18n}}</span>
+                    <input type="email" ng-model="Subscriber.Email" autocomplete="off" required>
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label">{{'deliveryPointStreet' | i18n}}</span>
+                    <input type="text" ng-model="Subscriber.StreetName" autocomplete="off" required>
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label">{{'deliveryPointStreetNo' | i18n}}</span>
+                    <input type="text" ng-model="Subscriber.StreetNumber" autocomplete="off" required>
+                </label>
+
+                <ion-item class="autocomplete-wrapper">
+                    <div class="row">
+                        <div class="col-90">
+                            <input type="text" class="city-autocomplete" autocomplete="off"
+                                placeholder="{{'deliveryPointCity' | i18n}}" ng-model="Subscriber.City"
+                                ng-keyup="searchForCity($event)" required />
+                        </div>
+                        <div class="col">
+                            <i class="icon ion-android-delete" ng-click="Subscriber.City=null"></i>
+                        </div>
+                    </div>
+                    <ion-scroll class="scroll-info" ng-show="!SelectedCity" ng-model="Subscriber.City">
+                        <ion-item class="list-group-item" ng-repeat="option in cities"
+                            ng-click="onItemSelected(option)">
+                            {{ option["CityName"] }}
+                        </ion-item>
+                    </ion-scroll>
+                </ion-item>
+
+                <label class="item item-input">
+                    <span class="input-label">{{'deliveryPointZip' | i18n}}</span>
+                    <input type="text" ng-model="Subscriber.Zip" autocomplete="off">
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label">{{'deliveryPointTD' | i18n}} </span>
+                    <input type="text" ng-model="Subscriber.PoBox" autocomplete="off">
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label">{{'deliveryPointOpeningHours' | i18n}} </span>
+                    <input type="text" ng-model="Subscriber.OpeningHours" autocomplete="off" required>
+                </label>
+
+
+            </div>
+
+            <div class="padding">
+                <button class="button button-block button-positive" ng-click="takeCommentPicture()">
+                    <i class="icon ion-camera"></i>
+                </button>
+            </div>
+
+            <div class="padding">
+                <button class="button button-block button-positive" ng-click="createDeliveryPoint()"
+                    ng-disabled="DeliveryPointForm.$invalid">
+                    {{'deliveryPointCreate' | i18n}}
+                </button>
+            </div>
+        </form>
+
+        <div class="padding">
+            <button class="button button-block button-positive" ng-click="newDeliveryPoint()">
+                {{'deliveryPointNew' | i18n}}
+            </button>
+        </div>
+        <div ng-if="message" class="padding">
+            <span>
+                {{message}}
+            </span>
+        </div>
+        <div ng-if="details" class="padding">
+            <span>
+                {{details}}
+            </span>
+        </div>
+        <div class="padding">
+            <span>
+                <a href="#/app/home"
+                    class="button button-clear button-large button-dark button-icon button-block ion-home button-outline">
+                </a>
+            </span>
+        </div>
+    </ion-content>
+</ion-view>
